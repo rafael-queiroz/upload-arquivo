@@ -1,0 +1,350 @@
+/*
+######################
+# UTILIDADES
+######################
+*/
+.upload-arquivo-glyphicon-large {
+	font-size: 18px;
+}
+
+.upload-arquivo-required>.upload-arquivo-control-label:after {
+	content: "*";
+}
+
+/* Tabela Simples */
+.upload-arquivo-tabela-simples {
+	margin-top: 15px;
+}
+
+.upload-arquivo-tabela-simples table tr th {
+	border-bottom-width: 1px;
+}
+
+.upload-arquivo-tabela-simples table tr td {
+	border-top: none;
+	border-bottom: 1px solid #e7eaec;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.upload-arquivo-tabela-materiais {
+	margin-bottom: 15px;
+}
+
+.upload-arquivo-tabela-materiais__vazio {
+	padding: 15px 15px;
+	border: 1px dashed #ddd;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: 300;
+	color: #555;
+}
+
+/*
+######################
+# COMPONENTES
+######################
+*/
+
+/* Field Action */
+.upload-arquivo-field-action {
+	display: flex;
+}
+
+.upload-arquivo-field-action__icon {
+	margin: 6px 0 0 5px;
+}
+
+/* Upload */
+.upload-arquivo-upload {
+	padding: 15px;
+	border: 1px dashed #ddd;
+	border-radius: 4px;
+	background: #fafafa;
+	text-align: center;
+}
+
+.upload-arquivo-upload-form-file {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 1px;
+}
+
+.upload-arquivo-upload-form-file>input[type=file] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer;
+	font-size: 500px;
+}
+
+.upload-arquivo-col1p {
+	width: 1%;
+}
+
+.upload-arquivo-col3p {
+	width: 3%;
+}
+
+.upload-arquivo-col4p {
+	width: 4%;
+}
+
+.upload-arquivo-col5p {
+	width: 5%;
+}
+
+.upload-arquivo-col6p {
+	width: 6%;
+}
+
+.upload-arquivo-col7p {
+	width: 7%;
+}
+
+.upload-arquivo-col8p {
+	width: 8%;
+}
+
+.upload-arquivo-col9p {
+	width: 9%;
+}
+
+.upload-arquivo-col10p {
+	width: 10%;
+}
+
+.upload-arquivo-col11p {
+	width: 11%;
+}
+
+.upload-arquivo-col12p {
+	width: 12%;
+}
+
+.upload-arquivo-col13p {
+	width: 13%;
+}
+
+.upload-arquivo-col14p {
+	width: 14%;
+}
+
+.upload-arquivo-col15p {
+	width: 15%;
+}
+
+.upload-arquivo-col20p {
+	width: 20%;
+}
+
+.upload-arquivo-col25p {
+	width: 25%;
+}
+
+.upload-arquivo-col30p {
+	width: 30%;
+}
+
+.upload-arquivo-col40p {
+	width: 40%;
+}
+
+.upload-arquivo-col50p {
+	width: 50%;
+}
+
+.upload-arquivo-col60p {
+	width: 60%;
+}
+
+.upload-arquivo-col70p {
+	width: 70%;
+}
+
+.upload-arquivo-col75p {
+	width: 75%;
+}
+
+.upload-arquivo-col80p {
+	width: 80%;
+}
+
+.upload-arquivo-col90p {
+	width: 90%;
+}
+
+.upload-arquivo-colCentro {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.upload-arquivo-colEsquerda {
+	text-align: left;
+	vertical-align: middle;
+}
+
+.upload-arquivo-colDireita {
+	text-align: right;
+	vertical-align: middle;
+}
+
+/*
+######################################
+# CUSTOMIZA«√O DE COMPONENTES
+######################################
+*/
+.checkbox input[type="checkbox"]:checked+input+label::after {
+	font-family: 'FontAwesome';
+	content: "\f00c";
+}
+
+/* Easy Autocomplete */
+.easy-autocomplete input {
+	border-radius: 2px !important;
+}
+
+.easy-autocomplete-container ul li {
+	font-size: 1em !important;
+	padding: 0px 5px !important;
+}
+
+/* Box */
+.negativo .aw-box__value {
+	color: red;
+}
+
+/* Tabela Item */
+.upload-arquivo-tabela-item {
+	position: relative;
+	/* Para que o painel de exclus√£o apare√ßa dentro da linha */
+	padding: 15px 0;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+.upload-arquivo-tabela-item:after {
+	clear: both;
+	display: block;
+	content: "";
+}
+
+.upload-arquivo-tabela-item ~ .upload-arquivo-tabela-item {
+	border-top: 1px solid #ddd;
+}
+
+.upload-arquivo-tabela-item__coluna {
+	padding: 0 10px;
+}
+
+.upload-arquivo-tabela-item__coluna--foto {
+	float: left;
+	width: 60px;
+	text-align: center;
+}
+
+.upload-arquivo-tabela-item__coluna--valores {
+	padding-right: 0px;
+}
+
+.upload-arquivo-tabela-item__coluna--detalhes,
+	.upload-arquivo-tabela-item__coluna--valores {
+	margin-left: 60px;
+}
+
+.upload-arquivo-tabela-material-descricao {
+	font-weight: 500;
+	font-size: 1.1em;
+	display: block;
+}
+
+.upload-arquivo-tabela-material-grupo {
+	color: #aaa;
+	display: block;
+	font-weight: 200;
+}
+
+.upload-arquivo-tabela-cerveja-campo-quantidade {
+	width: 30px;
+	text-align: right;
+}
+
+.upload-arquivo-tabela-cerveja-valor-pequeno {
+	font-weight: 300;
+	font-size: 1em;
+}
+
+.upload-arquivo-tabela-material-valor-medio {
+	font-weight: 300;
+	font-size: 1.3em;
+}
+
+.upload-arquivo-tabela-cerveja-valor-grande {
+	font-weight: 300;
+	font-size: 1.6em;
+}
+
+.upload-arquivo-tabela-item__painel-exclusao {
+	position: absolute;
+	top: 0;
+	right: 100000px;
+	height: 100%;
+	width: 50%;
+	text-align: center;
+	padding-top: 35px;
+	background-color: #f0ad4e;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.solicitando-exclusao .upload-arquivo-tabela-item__painel-exclusao {
+	right: 0;
+	opacity: 1;
+}
+
+.upload-arquivo-tabela-item__titulo-exclusao {
+	display: block;
+	margin-bottom: 5px;
+	color: #fff;
+	font-size: 1.3em;
+}
+
+@media ( min-width : 768px) { /* screen-sm-min */
+	.upload-arquivo-tabela-item__painel-exclusao {
+		width: 40%;
+		padding-top: 10px;
+	}
+	.upload-arquivo-tabela-item__coluna {
+		float: left;
+		margin-left: 0px;
+	}
+	.upload-arquivo-tabela-item__coluna--detalhes {
+		width: calc(70% - 30px);
+	}
+	.upload-arquivo-tabela-item__coluna--valores {
+		width: calc(30% - 30px);
+		text-align: right;
+	}
+}
+
+ 
+/*
+###################
+# P¡GINAS DO SISTEMA
+###################
+*/
+.table-usuarios-col-status {
+	width: 30px;
+	text-align: center;
+}
+
+.upload-arquivo-vermelho {
+	color: #d00;
+}

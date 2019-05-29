@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+<head>
+	<title>Importação de Programação</title>
+	
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/vendors.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/upload-arquivo.css}"/>
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/vendors/bootstrap-datepicker.standalone.min.css}"/>
+	
+	<link rel="stylesheet" th:href="@{/stylesheets/vendors/upload.min.css}"/>
+</head>
+	
+<body>
+	<div class="upload-arquivo-layout-page">
+
+		<div id="uploadArquivo" class="container-fluid">
+			<form method="POST" th:object="${arquivoImportado}" class="form-vertical  js-form-loading" th:action="@{/importacao-arquivo/salvar}">
+				<div class="row">
+					<div class="form-group  col-sm-12">
+						<input type="hidden" th:field="*{nomeArquivo}">
+						<input type="hidden" th:field="*{nomeArquivoOriginal}">
+						<input type="hidden" th:field="*{contentTypeArquivo}">
+						
+						<label class="control-label">Importar arquivo</label>
+						<div class="js-upload-arquivo">
+							<div id="upload-drop" class="upload-arquivo-upload">
+								<i class="glyphicon  glyphicon-cloud-upload"></i>
+								<span>Arraste o arquivo aqui ou </span>
+								<a class="upload-arquivo-upload-form-file">selecione 
+									<input id="upload-select" type="file" accept=".pdf"/>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<button id="button" class="btn  btn-primary  hidden" type="submit" data-toggle="modal" data-target="#modalProcessando">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<th:block th:replace="ImportacaoArquivoRetorno"></th:block>
+	<th:block th:replace="ModalAguarde"></th:block>
+ 	
+	<script th:src="@{/layout/javascripts/vendors.min.js}"></script>
+	
+	<script th:src="@{/javascripts/vendors/uikit.min.js}"></script>
+	<script th:src="@{/javascripts/vendors/upload.min.js}"></script>
+	<script th:src="@{/javascripts/vendors/handlebars.min.js}"></script>
+	
+	<script>
+		$(function(){
+			var settings ={
+				type: 'json',
+				filelimit: 1,
+				allow: '*.(pdf)',
+				action: '/upload-arquivo/importacao-arquivo/importar',
+				complete: function(resposta){
+					var nomeArquivo = $('input[name=nomeArquivo]');
+					var nomeArquivoOriginal = $('input[name=nomeArquivoOriginal]');
+					var contentTypeArquivo = $('input[name=contentTypeArquivo]');
+					
+					var htmlUploadArquivoTemplate = $('#upload-arquivo').html();
+					var template = Handlebars.compile(htmlUploadArquivoTemplate);
+					var htmlUploadArquivo = template({nomeArquivoOriginal: resposta.nomeArquivoOriginal});
+					
+					var uploadDrop = $('#upload-drop');
+					var containerUploadArquivo = $('.js-upload-arquivo');
+					
+					var buttonGerarProgramacao = $('#button');
+					
+					nomeArquivo.val(resposta.nomeArquivo);
+					nomeArquivoOriginal.val(resposta.nomeArquivoOriginal);
+					contentTypeArquivo.val(resposta.contentTypeArquivo);
+					
+					uploadDrop.addClass('hidden');
+					containerUploadArquivo.append(htmlUploadArquivo);
+					
+					buttonGerarProgramacao.removeClass('hidden');	
+					
+					$('.js-remove-arquivo').on('click', function () {
+						$('.js-arquivo').remove();
+						uploadDrop.removeClass('hidden');
+						nomeArquivo.val('');
+						nomeArquivoOriginal.val('');
+						contentTypeArquivo.val('');
+						buttonGerarProgramacao.addClass('hidden');
+					});
+				},
+				beforeSend: adicionarCsrfToken
+			};
+			
+			UIkit.uploadSelect($('#upload-select'), settings);
+			UIkit.uploadDrop($('#upload-drop'), settings);
+		});
+		
+		function adicionarCsrfToken(xhr) {
+			var token = $('input[name=_csrf]').val();
+			var header = $('input[name=_csrf_header]').val();
+			xhr.setRequestHeader(header, token);
+		}
+	</script>
+	
+</body>
+
+	
+</html>

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: upload-arquivo
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: rafae
+Implementation-Vendor-Id: br.com.uploadarquivo
+Build-Jdk: 1.8.0_211
+Implementation-URL: http://projects.spring.io/spring-boot/upload-arqui
+ vo/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
